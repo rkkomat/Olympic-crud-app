@@ -70,11 +70,23 @@ print(df_medals.tail(10))
 #print(df_athletes.tail(10))
 
 
+import sqlite3
 
 
+conn = sqlite3.connect('olympic_database.db')
+cursor = conn.cursor()
 
+cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+tables = cursor.fetchall()
 
+for table in tables:
+    print(table[0])
 
+conn.close()
 
-
-#
+# Print entire Olympic_Events table
+conn = sqlite3.connect('olympic_database.db')
+df_events = pd.read_sql_query("SELECT * FROM Olympic_Events", conn)
+print("\nOlympic_Events table:")
+print(df_events)
+conn.close()

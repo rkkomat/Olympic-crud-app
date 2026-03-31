@@ -90,9 +90,9 @@ print("Creating table 'Olympic_Events'...")
 cursor.execute('''CREATE TABLE IF NOT EXISTS Olympic_Events
                      (ID INTEGER PRIMARY KEY,
                      Year INTEGER,
-                     Type_of_Games INTEGER,
-                     Location INTEGER,
-                     Country INTEGER,
+                     Type_of_Games TEXT,
+                     Location TEXT,
+                     Country TEXT,
                      Ceremony_Date DATE)''')
 
 conn.commit()
